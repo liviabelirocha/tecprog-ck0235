@@ -2,6 +2,9 @@ package trabalho02.conjunto;
 
 public class Main {
     public static void main(String[] args) {
+        /* QUESTÃO 12 */
+        System.out.println("QUESTÃO 12");
+
         Conjunto naturais = new Conjunto(10);
         Conjunto pares = new Conjunto(5);
         Conjunto impares = new Conjunto(5);
@@ -21,15 +24,6 @@ public class Main {
             pares.addElem(par[i]);
             impares.addElem(impar[i]);
         }
-
-        System.out.println("CONJUNTO 1");
-        naturais.print();
-        System.out.println("\nCONJUNTO 2");
-        pares.print();
-        System.out.println("\nCONJUNTO 3");
-        impares.print();
-        System.out.println("\nCONJUNTO 4");
-        primos.print();
 
         System.out.println("\nA. Se o conjunto 4 é subconjunto de si mesmo.");
         if (primos.subconjunto(primos))
@@ -68,5 +62,50 @@ public class Main {
         System.out.println("\nE. Qual diferença entre os conjuntos 1 e 2;");
         Conjunto diferenca = naturais.diferenca(pares);
         diferenca.print();
-    }
+
+        /* QUESTÃO 15 */
+        System.out.println("\nQUESTÃO 15\n");
+
+        Conjunto universo = new Conjunto(50);
+        for (int i = 1; i <= 50; i++)
+            universo.addElem(i);
+
+        Conjunto A = new Conjunto(3);
+        Conjunto B = new Conjunto(3);
+        int a[] = { 3, 38, 42 };
+        int b[] = { 7, 26, 48 };
+
+        for (int i = 0; i < 3; i++) {
+            A.addElem(a[i]);
+            B.addElem(b[i]);
+        }
+
+        Conjunto CompA = universo.diferenca(A);
+        Conjunto CompB = universo.diferenca(B);
+
+        /* ITEM 1 */
+        System.out.println("ITEM 1");
+        Conjunto Esquerda1 = A.uniao(B);
+        Esquerda1 = universo.diferenca(Esquerda1);
+
+        Conjunto Direita1 = CompA.interseccao(CompB);
+
+        if (Direita1.subconjunto(Esquerda1) && Esquerda1.subconjunto(Direita1))
+            System.out.println("São iguais.");
+        else
+            System.out.println("NÃO são iguais.");
+
+        /* ITEM 2 */
+        System.out.println("\nITEM 2");
+        Conjunto Esquerda2 = A.interseccao(B);
+        Esquerda2 = universo.diferenca(Esquerda2);
+
+        Conjunto Direita2 = CompA.uniao(CompB);
+
+        if (Direita2.subconjunto(Esquerda2) && Esquerda2.subconjunto(Direita2))
+            System.out.println("São iguais.");
+        else
+            System.out.println("NÃO são iguais.");
+    };
+
 }

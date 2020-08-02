@@ -105,10 +105,4 @@ public class Conjunto {
             System.out.print(" " + conjunto_[i] + " ");
         System.out.println("}");
     }
-
-    public Conjunto produtoCartesiano(Conjunto B) {
-        Conjunto result = new Conjunto(n_ * B.getSize());
-
-        return result;
-    }
 }
