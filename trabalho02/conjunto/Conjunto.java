@@ -99,10 +99,36 @@ public class Conjunto {
         return result;
     }
 
+    public Conjunto[] produtoCartesiano(Conjunto B) {
+        Conjunto[] result = new Conjunto[n_ * B.getSize()];
+
+        int n = 0;
+        for (int i = 0; i < i_; i++) {
+            for (int j = 0; j < B.getIndex(); j++) {
+                result[n] = new Conjunto(2);
+                result[n].addElem(conjunto_[i]);
+                result[n].addElem(B.getElement(j));
+                n++;
+            }
+        }
+
+        return result;
+    }
+
     public void print() {
         System.out.print("{");
         for (int i = 0; i < i_; i++)
             System.out.print(" " + conjunto_[i] + " ");
         System.out.println("}");
+    }
+
+    public void printArray(Conjunto[] conjuntos) {
+        System.out.print("\n [\n");
+        for (int n = 0; n < conjuntos.length; n++) {
+            System.out.print("   ");
+            conjuntos[n].print();
+        }
+
+        System.out.println(" ]\n");
     }
 }

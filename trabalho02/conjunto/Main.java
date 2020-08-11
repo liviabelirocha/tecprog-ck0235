@@ -63,6 +63,28 @@ public class Main {
         Conjunto diferenca = naturais.diferenca(pares);
         diferenca.print();
 
+        /* QUESTÃO 14 */
+        System.out.println("\nQUESTÃO 14\n");
+
+        Conjunto X = new Conjunto(5);
+        Conjunto Y = new Conjunto(5);
+        int x[] = { 3, 38, 42, 73, 82 };
+        int y[] = { 7, 26, 48, 54, 87 };
+
+        for (int i = 0; i < 5; i++) {
+            X.addElem(x[i]);
+            Y.addElem(y[i]);
+        }
+
+        System.out.println("Conjuntos X e Y");
+        X.print();
+        Y.print();
+
+        System.out.println("\nO produto cartesiano entre dois conjuntos.");
+
+        Conjunto[] PA = X.produtoCartesiano(Y);
+        X.printArray(PA);
+
         /* QUESTÃO 15 */
         System.out.println("\nQUESTÃO 15\n");
 
